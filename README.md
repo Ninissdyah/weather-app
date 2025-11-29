@@ -2,6 +2,8 @@
 
 A comprehensive weather monitoring dashboard that provides real-time weather data, interactive charts, and AI-powered daily recommendations.
 
+<img width="1920" height="1134" alt="screencapture-localhost-8000-2025-11-29-23_03_50" src="https://github.com/user-attachments/assets/d3a35f43-d3f2-419b-a640-f2c7f14fcbc6" />
+
 ## How to Use
 
 1.  **Prerequisites**:
