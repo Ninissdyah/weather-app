@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Weather Dashboard</h1>
+            <div class="datetime-display" id="datetime-display">
+                <span id="current-time">--:--</span>
+                <span id="current-date">---, --- --</span>
+            </div>
+            <div class="header-controls">
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="location-search" placeholder="Search location...">
+                    <div id="search-suggestions" class="suggestions-box"></div>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="dashboard-grid">
+                <!-- Recommendations Section -->
+                <section class="recommendation-card">
+                    <div class="recommendation-content">
+                        <div class="recommendation-text">
+                            <h2 id="recommendation-title">Loading...</h2>
+                            <p id="recommendation-desc">Fetching weather data...</p>
+                        </div>
+                        <div class="recommendation-icon" id="recommendation-icon-container">
+                            <!-- SVG will be injected here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Metrics Grid -->
+                <section class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">🌡️</div>
+                        <div class="metric-info">
+                            <h3>Temperature</h3>
+                            <div class="metric-value" id="temp-value">--°C</div>
+                            <div class="metric-sub">Feels like <span id="feels-like">--°C</span></div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">💧</div>
+                        <div class="metric-info">
+                            <h3>Humidity</h3>
+                            <div class="metric-value" id="humidity-value">--%</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">💨</div>
+                        <div class="metric-info">
+                            <h3>Wind Speed</h3>
+                            <div class="metric-value" id="wind-value">-- km/h</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">☀️</div>
+                        <div class="metric-info">
+                            <h3>UV Index</h3>
+                            <div class="metric-value" id="uv-value">--</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">⏲️</div>
+                        <div class="metric-info">
+                            <h3>Pressure</h3>
+                            <div class="metric-value" id="pressure-value">-- hPa</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🌧️</div>
+                        <div class="metric-info">
+                            <h3>Precipitation</h3>
+                            <div class="metric-value" id="precip-value">-- mm</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Charts Section -->
+                <section class="chart-card">
+                    <h3>24-Hour Forecast</h3>
+                    <div class="chart-container">
+                        <canvas id="weatherChart"></canvas>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+
+</html>
